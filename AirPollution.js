@@ -61,6 +61,7 @@ Module.register("AirPollution", {
   },
   
   getDom: function() {
+    var mainDiv = document.createElement("div");
     var airDiv = document.createElement("div");
     airDiv.className = "air";
     var pm10Div = document.createElement("div");
@@ -69,14 +70,18 @@ Module.register("AirPollution", {
     var pm2dot5Div = document.createElement("div");
     var pm2dot5ValueDiv = document.createElement("div");
     pm2dot5ValueDiv.className = "airValue";
+    var developedbyDiv = document.createElement("div");
+    developedbyDiv.className = "devby";
+    developedbyDiv.innerHTML = "이지원 Github @Av3lla";
     
     pm10ValueDiv.innerHTML = this.pm10;
     pm2dot5ValueDiv.innerHTML = this.pm2dot5;
     
-    pm10Div.append("미세먼지(PM10)", pm10ValueDiv);
-    pm2dot5Div.append ("초미세먼지(PM2.5)", pm2dot5ValueDiv);
+    pm10Div.append("미세먼지", pm10ValueDiv);
+    pm2dot5Div.append ("초미세먼지", pm2dot5ValueDiv);
     
     airDiv.append(pm10Div, pm2dot5Div);
-    return airDiv;
+    mainDiv.append(airDiv, developedbyDiv);
+    return mainDiv;
   }
 });
