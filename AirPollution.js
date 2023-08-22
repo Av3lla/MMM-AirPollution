@@ -10,8 +10,7 @@ Module.register("AirPollution", {
     enableHeader: true,
     header: "Air Pollution",
     key: null,
-    latitude: 37.56896164905004,
-    longitude: 126.84714596472158,
+    location: "강서구",
     updateInterval: 1000 * 60
   },
   
@@ -44,8 +43,8 @@ Module.register("AirPollution", {
 
   getAirData: async function() {
     // request
-    const url = "http://api.openweathermap.org/data/2.5/air_pollution";
-    const requestUrl = `${url}?lat=${this.config.latitude}&lon=${this.config.longitude}&appid=${this.config.key}`;
+    const url = "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty";
+    const requestUrl = `${url}?serviceKey=${this.config.key}&returnType=${'json'}&stationName=${this.config.location}&dataTerm=${'DAILY'}&ver=${1.3}`;
     // fetch
     let airData = await fetch(requestUrl)
       .then(rawResponse => {
@@ -54,13 +53,18 @@ Module.register("AirPollution", {
       .catch(error => {
         console.log(error);
       });
-    this.pm10 = airData.list[0].components.pm10;
-    this.pm2dot5 = airData.list[0].components.pm2_5;
+    this.pm10 = airData.response.body.items[0].pm10Value;
+    this.pm2dot5 = airData.response.body.items[0].pm25Value;
+    this.pm10Grade = airData.response.body.items[0].pm10Grade1h;
+    this.pm2dot5Grade = airData.response.body.items[0].pm25Grade1h;
     
     this.updateDom();
   },
   
   getDom: function() {
+    //grade 1=좋음 2=보통 3=나쁨 4=매우나쁨
+    let gradeArray = ["좋음", "보통", "나쁨", "매우나쁨"];
+
     var mainDiv = document.createElement("div");
     var airDiv = document.createElement("div");
     airDiv.className = "air";
@@ -74,8 +78,8 @@ Module.register("AirPollution", {
     developedbyDiv.className = "devby";
     developedbyDiv.innerHTML = "이지원 Github @Av3lla";
     
-    pm10ValueDiv.innerHTML = this.pm10;
-    pm2dot5ValueDiv.innerHTML = this.pm2dot5;
+    pm10ValueDiv.innerHTML = `${this.pm10} | ${gradeArray[pm10Grade-1]}`;
+    pm2dot5ValueDiv.innerHTML = `${this.pm2dot5} | ${gradeArray[pm2dot5Grade-1]})`;
     
     pm10Div.append("미세먼지", pm10ValueDiv);
     pm2dot5Div.append ("초미세먼지", pm2dot5ValueDiv);

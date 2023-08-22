@@ -1,4 +1,4 @@
-# Air Pollution Module
+# Air Pollution Module / 미세먼지 모듈
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-181717.svg?logo=javascript)
 ![GitHub repo size](https://img.shields.io/github/repo-size/av3lla/air-pollution-module)
@@ -6,7 +6,7 @@
 
 ### Magic Mirror Module
 
-A module for the [MagicMirror](https://github.com/MichMich/MagicMirror) to display a [*air pollution*](https://en.wikipedia.org/wiki/Air_pollution) using data from [OpenWeatherMap](https://openweathermap.org/).
+A module for the [MagicMirror](https://github.com/MichMich/MagicMirror) to display a [*air pollution*](https://en.wikipedia.org/wiki/Air_pollution) using api from [한국환경공단](https://keco.or.kr/).
 
 ---
 
@@ -37,8 +37,7 @@ A module for the [MagicMirror](https://github.com/MichMich/MagicMirror) to displ
             enableHeader: true,
             header: "header",
             key: 'ApiKey',
-            latitude: '37.5689',
-            longitude: '126.8471',
+            location: 'OO구',
             updateInterval: '1000 * 60'
     	}
     },
@@ -48,9 +47,8 @@ A module for the [MagicMirror](https://github.com/MichMich/MagicMirror) to displ
     |---|---|---|---|
     | `enableHeader` | enable header if you want. | `true` | X |
     | `header` | set header | `Air Pollution` | X |
-    | `key` | the API key from OpenWeatherMap.| `null` | O |
-    | `latitude` | latitude | `37.5689` | O |
-    | `longitude` | longitude | `126.8471` | O |
+    | `key` | 한국환경공단 API키.| `null` | O |
+    | `location` | 시 / 구 | `강서구` | O |
     | `updateInterval` | change the update period in Milliseconds. | `1000*60` | X |
 
 ---
