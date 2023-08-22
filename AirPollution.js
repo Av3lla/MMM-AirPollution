@@ -78,26 +78,26 @@ Module.register("AirPollution", {
     developedbyDiv.className = "devby";
     developedbyDiv.innerHTML = "이지원 Github @Av3lla";
     
-    pm10ContentsDiv.innerHTML = `${this.pm10} | ${gradeArray[pm10Grade-1]}`;
-    pm2dot5ContentsDiv.innerHTML = `${this.pm2dot5} | ${gradeArray[pm2dot5Grade-1]})`;
-    if (pm10Grade === '1') {
+    pm10ContentsDiv.innerHTML = `${this.pm10} | ${gradeArray[this.pm10Grade-1]}`;
+    pm2dot5ContentsDiv.innerHTML = `${this.pm2dot5} | ${gradeArray[this.pm2dot5Grade-1]}`;
+    if (this.pm10Grade === '1') {
       pm10ContentsDiv.style.color = '#99FF99';
-    } else if (pm10Grade === '2') {
+    } else if (this.pm10Grade === '2') {
       pm10ContentsDiv.style.color = '#FFFF99';
-    } else if (pm10Grade === '3') {
+    } else if (this.pm10Grade === '3') {
       pm10ContentsDiv.style.color = '#FFB266';
-    } else if (pm10Grade === '4') {
+    } else if (this.pm10Grade === '4') {
       pm10ContentsDiv.style.color = '#FF6666';
     } else {
       pm10ContentsDiv.style.color = '#FFFFFF';
     }
-    if (pm2dot5Grade === '1') {
+    if (this.pm2dot5Grade === '1') {
       pm2dot5ContentsDiv.style.color = '#99FF99';
-    } else if (pm2dot5Grade === '2') {
+    } else if (this.pm2dot5Grade === '2') {
       pm2dot5ContentsDiv.style.color = '#FFFF99';
-    } else if (pm2dot5Grade === '3') {
+    } else if (this.pm2dot5Grade === '3') {
       pm2dot5ContentsDiv.style.color = '#FFB266';
-    } else if (pm2dot5Grade === '4') {
+    } else if (this.pm2dot5Grade === '4') {
       pm2dot5ContentsDiv.style.color = '#FF6666';
     } else {
       pm2dot5ContentsDiv.style.color = '#FFFFFF';
