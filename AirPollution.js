@@ -69,20 +69,42 @@ Module.register("AirPollution", {
     var airDiv = document.createElement("div");
     airDiv.className = "air";
     var pm10Div = document.createElement("div");
-    var pm10ValueDiv = document.createElement("div");
-    pm10ValueDiv.className = "airValue";
+    var pm10ContentsDiv = document.createElement("div");
+    pm10ContentsDiv.className = "airValue";
     var pm2dot5Div = document.createElement("div");
-    var pm2dot5ValueDiv = document.createElement("div");
-    pm2dot5ValueDiv.className = "airValue";
+    var pm2dot5ContentsDiv = document.createElement("div");
+    pm2dot5ContentsDiv.className = "airValue";
     var developedbyDiv = document.createElement("div");
     developedbyDiv.className = "devby";
     developedbyDiv.innerHTML = "이지원 Github @Av3lla";
     
-    pm10ValueDiv.innerHTML = `${this.pm10} | ${gradeArray[pm10Grade-1]}`;
-    pm2dot5ValueDiv.innerHTML = `${this.pm2dot5} | ${gradeArray[pm2dot5Grade-1]})`;
+    pm10ContentsDiv.innerHTML = `${this.pm10} | ${gradeArray[pm10Grade-1]}`;
+    pm2dot5ContentsDiv.innerHTML = `${this.pm2dot5} | ${gradeArray[pm2dot5Grade-1]})`;
+    if (pm10Grade === '1') {
+      pm10ContentsDiv.style.color = '#99FF99';
+    } else if (pm10Grade === '2') {
+      pm10ContentsDiv.style.color = '#FFFF99';
+    } else if (pm10Grade === '3') {
+      pm10ContentsDiv.style.color = '#FFB266';
+    } else if (pm10Grade === '4') {
+      pm10ContentsDiv.style.color = '#FF6666';
+    } else {
+      pm10ContentsDiv.style.color = '#FFFFFF';
+    }
+    if (pm2dot5Grade === '1') {
+      pm2dot5ContentsDiv.style.color = '#99FF99';
+    } else if (pm2dot5Grade === '2') {
+      pm2dot5ContentsDiv.style.color = '#FFFF99';
+    } else if (pm2dot5Grade === '3') {
+      pm2dot5ContentsDiv.style.color = '#FFB266';
+    } else if (pm2dot5Grade === '4') {
+      pm2dot5ContentsDiv.style.color = '#FF6666';
+    } else {
+      pm2dot5ContentsDiv.style.color = '#FFFFFF';
+    }
     
-    pm10Div.append("미세먼지", pm10ValueDiv);
-    pm2dot5Div.append ("초미세먼지", pm2dot5ValueDiv);
+    pm10Div.append("미세먼지", pm10ContentsDiv);
+    pm2dot5Div.append ("초미세먼지", pm2dot5ContentsDiv);
     
     airDiv.append(pm10Div, pm2dot5Div);
     mainDiv.append(airDiv, developedbyDiv);
