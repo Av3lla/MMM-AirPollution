@@ -5,7 +5,7 @@
  * MIT Licensed.
  */
 
-Module.register("AirPollution", {
+Module.register("MMM-AirPollution", {
   defaults: {
     enableHeader: true,
     header: "Air Pollution",
@@ -30,7 +30,7 @@ Module.register("AirPollution", {
   },
 
   getStyles: function() {
-    return ["AirPollution.css"];
+    return ["MMM-AirPollution.css"];
   },
 
   getHeader: function() {
@@ -63,7 +63,7 @@ Module.register("AirPollution", {
   
   getDom: function() {
     //grade 1=좋음 2=보통 3=나쁨 4=매우나쁨
-    let gradeArray = ["좋음", "보통", "나쁨", "매우나쁨"];
+    let gradeArray = ["좋음", "보통", "나쁨", "심각"];
 
     var mainDiv = document.createElement("div");
     var airDiv = document.createElement("div");
@@ -78,8 +78,8 @@ Module.register("AirPollution", {
     developedbyDiv.className = "devby";
     developedbyDiv.innerHTML = "이지원 Github @Av3lla";
     
-    pm10ContentsDiv.innerHTML = `${this.pm10} | ${gradeArray[this.pm10Grade-1]}`;
-    pm2dot5ContentsDiv.innerHTML = `${this.pm2dot5} | ${gradeArray[this.pm2dot5Grade-1]}`;
+    pm10ContentsDiv.innerHTML = `${this.pm10}|${gradeArray[this.pm10Grade-1]}`;
+    pm2dot5ContentsDiv.innerHTML = `${this.pm2dot5}|${gradeArray[this.pm2dot5Grade-1]}`;
     if (this.pm10Grade === '1') {
       pm10ContentsDiv.style.color = '#99FF99';
     } else if (this.pm10Grade === '2') {

@@ -23,7 +23,7 @@ A module for the [MagicMirror](https://github.com/MichMich/MagicMirror) to displ
     ```shell
     cd ~/MagicMirror/modules && git clone https://github.com/Av3lla/air-pollution-module
     ```
-    ### [* Folder name issue](#known-issues)
+    ~~### [* Folder name issue](#known-issues)~~
 
     ### Configuration
 
@@ -31,7 +31,7 @@ A module for the [MagicMirror](https://github.com/MichMich/MagicMirror) to displ
 
     ```js
     {
-    	module: 'AirPollution',
+    	module: 'MMM-AirPollution',
     	position: 'top_right',
     	config: {
             enableHeader: true,
@@ -54,6 +54,3 @@ A module for the [MagicMirror](https://github.com/MichMich/MagicMirror) to displ
 ---
 
 ### NOTE
-
-#### Known Issues
-  * You Need to change the *folder name* from `air-pollution-module` to `AirPollution`.
